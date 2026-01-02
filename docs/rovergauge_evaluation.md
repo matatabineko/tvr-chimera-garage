@@ -19,44 +19,6 @@ RoverGauge の表示項目をもとに、
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>RoverGauge項目の評価解説（14CUX / TVR）</title>
-  <meta name="description" content="RoverGauge表示項目を用いた14CUX ECU制御の健全性評価方法。TVR R2967チューンを例に実データから判断基準を解説。">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.8;
-      margin: 2rem;
-      max-width: 900px;
-    }
-    h1, h2, h3 {
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 0.3em;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin: 1rem 0;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 0.5rem;
-      text-align: left;
-    }
-    th {
-      background: #f0f0f0;
-    }
-    .good { color: green; font-weight: bold; }
-    .warn { color: darkorange; font-weight: bold; }
-    .note {
-      background: #f9f9f9;
-      border-left: 4px solid #888;
-      padding: 1rem;
-      margin: 1rem 0;
-    }
-  </style>
-</head>
-<body>
 
 <h1>RoverGauge項目のChatGPTによる評価解説</h1>
 
