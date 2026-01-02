@@ -15,7 +15,6 @@ RoverGauge の表示項目をもとに、
 本ページで使用する画面は、
 暖機完了後・アイドル安定状態の実車データである。
 
-<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -145,7 +144,4 @@ Lambda補正がほぼゼロで推移している場合、R2967前提で最適な
 <p>
 RoverGaugeは「数値を見る」のではなく「整合性を見る」ことが重要。
 </p>
-
-</body>
-</html>
 
