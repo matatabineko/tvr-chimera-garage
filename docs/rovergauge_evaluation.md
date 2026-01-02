@@ -149,5 +149,3 @@ RoverGaugeは「数値を見る」のではなく「整合性を見る」こと�
 </body>
 </html>
 
-Add RoverGauge evaluation article with top image
-
