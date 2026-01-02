@@ -15,8 +15,6 @@ RoverGauge の表示項目をもとに、
 本ページで使用する画面は、
 暖機完了後・アイドル安定状態の実車データである。
 
-Add RoverGauge evaluation article with top image
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -188,3 +186,6 @@ RoverGaugeは「数値を見る」のではなく「整合性を見る」こと�
 
 </body>
 </html>
+
+Add RoverGauge evaluation article with top image
+
