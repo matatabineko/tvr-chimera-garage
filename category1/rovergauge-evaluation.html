@@ -1,1 +1,171 @@
-Add RoverGauge evaluation guide page
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>RoverGauge項目の評価解説（14CUX / TVR）</title>
+  <meta name="description" content="RoverGauge表示項目を用いた14CUX ECU制御の健全性評価方法。TVR R2967チューンを例に実データから判断基準を解説。">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.8;
+      margin: 2rem;
+      max-width: 900px;
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.3em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background: #f0f0f0;
+    }
+    .good { color: green; font-weight: bold; }
+    .warn { color: darkorange; font-weight: bold; }
+    .note {
+      background: #f9f9f9;
+      border-left: 4px solid #888;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+
+<h1>RoverGauge項目のChatGPTによる評価解説</h1>
+
+<p>
+本ページは、Lucas 14CUX ECU を搭載した TVR（Chimaera / Griffith 等）において、
+RoverGauge に表示される各項目から <strong>ECU制御の健全性を評価するための実践的ガイド</strong>です。
+</p>
+
+---
+
+<h2>1. 総合評価（結論）</h2>
+
+<p class="good">✅ 制御状態は全体として「完全に健全」</p>
+
+<ul>
+  <li>致命的な異常なし</li>
+  <li>センサー破綻なし</li>
+  <li>燃調逸脱なし</li>
+</ul>
+
+---
+
+<h2>2. 通信・ECU基本状態</h2>
+
+<h3>Communications</h3>
+<ul>
+  <li class="good">🟢 緑点灯：通信安定</li>
+  <li>🔴 赤消灯：エラーなし</li>
+</ul>
+
+<p>
+FTDI設定、配線、ECU応答はすべて正常。
+</p>
+
+<h3>Tune / Ident</h3>
+
+<table>
+  <tr><th>項目</th><th>値</th><th>評価</th></tr>
+  <tr><td>Tune</td><td>R2967</td><td class="good">TVR向け</td></tr>
+  <tr><td>Ident</td><td>1A17</td><td class="good">正常</td></tr>
+  <tr><td>Checksum fixer</td><td>5D</td><td class="good">ROM異常なし</td></tr>
+</table>
+
+---
+
+<h2>3. エンジン基本状態（アイドル）</h2>
+
+<table>
+  <tr><th>項目</th><th>値</th><th>評価</th></tr>
+  <tr><td>RPM</td><td>901 rpm</td><td class="good">安定</td></tr>
+  <tr><td>Target idle</td><td>900 rpm</td><td class="good">一致</td></tr>
+  <tr><td>Idle bypass</td><td>12%</td><td class="good">余裕あり</td></tr>
+  <tr><td>Coolant temp</td><td>86°C</td><td class="good">暖機完了</td></tr>
+  <tr><td>Main voltage</td><td>13.1V</td><td class="good">充電正常</td></tr>
+</table>
+
+<div class="note">
+Idle bypass が振り切っていないことは、二次エアや機械的異常が無いことを示す重要な指標。
+</div>
+
+---
+
+<h2>4. 吸気・スロットル系</h2>
+
+<ul>
+  <li>Throttle (Absolute): 6% → 14CUX仕様上正常</li>
+  <li>MAF (Linear): 3% → アイドル負荷として妥当</li>
+</ul>
+
+<p>
+MAF とスロットル値の整合性が取れており、エア漏れの兆候なし。
+</p>
+
+---
+
+<h2>5. 燃調・Lambda補正</h2>
+
+<table>
+  <tr><th>項目</th><th>値</th><th>評価</th></tr>
+  <tr><td>Lambda trim (odd)</td><td>+1%</td><td class="good">理想</td></tr>
+  <tr><td>Lambda trim (even)</td><td>0%</td><td class="good">理想</td></tr>
+  <tr><td>Injector duty</td><td>4%</td><td class="good">余裕あり</td></tr>
+  <tr><td>Pulse width</td><td>2.79 ms</td><td class="good">正常</td></tr>
+</table>
+
+<p>
+±10%以上でなければ異常とは判断しない。
+</p>
+
+---
+
+<h2>6. フューエルマップ状態</h2>
+
+<ul>
+  <li>Current fuel map: 5（通常走行）</li>
+  <li>RPM limit: 6250</li>
+  <li>フェイルセーフ（Map 0）ではない</li>
+</ul>
+
+---
+
+<h2>7. TVR特有 R2967 チューン解説</h2>
+
+<ul>
+  <li>レスポンス重視</li>
+  <li>中負荷域は Rover 純正よりやや薄め</li>
+  <li>高負荷域では十分な燃料供給</li>
+</ul>
+
+<div class="note">
+Lambda補正がほぼゼロで推移している場合、R2967前提で最適な状態。
+</div>
+
+---
+
+<h2>8. まとめ</h2>
+
+<ul>
+  <li class="good">ECU制御は健全</li>
+  <li class="good">R2967チューンとして理想状態</li>
+  <li class="warn">無理な燃調・CO調整は不要</li>
+</ul>
+
+<p>
+RoverGaugeは「数値を見る」のではなく「整合性を見る」ことが重要。
+</p>
+
+</body>
+</html>
