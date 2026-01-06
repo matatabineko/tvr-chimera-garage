@@ -73,18 +73,3 @@ Pads EBC part number DP3415C (Red stuff)</TD></TR><tr><TD>Clutch master cylinder
 <div><div id="390540138945094892" align="left" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><table align="center" cellpadding="5" cellspacing="1" border="1"><TR><TH>Part</TH><TH>Detail</TH></TR><tr><TD>Washer Bottle Cap</TD><TD>Tescos milk bottle (choice of colours). May need to remove the thread.</TD></TR><tr><TD>Washer pump</TD><TD>Cortina Mk5</TD></TR><tr><TD>Washer tank</TD><TD>Ford</TD></TR><tr><TD>Wiper blades</TD><TD>Lucas WEB160</TD></TR><tr><TD>Wiper motor</TD><TD>Lucas Type 17<BR>60027021A</TD></TR><tr><TD>Wiper Park Switch</TD><TD>Lucas: WHB101, British Leyland (even Black Cab)</TD></TR>
 </TABLE></div>
 
-
-
-</div>
-</div>
-</div>
-			</div>
-			<div id="footer"><div class='wsite-elements wsite-footer'>
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:21.359726136792%; padding:0 15px;">
-					
-						
-
