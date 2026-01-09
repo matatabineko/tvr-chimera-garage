@@ -150,5 +150,5 @@
   </tbody>
 </table>
 <p class="note">
-  * このパーツリストはガイド情報であり、正確な部品番号・適合は実物部品と照合してください。出典元は TVRCC Chimaera Pages。:contentReference[oaicite:1]{index=1}
+  * このパーツリストはガイド情報であり、正確な部品番号・適合は実物部品と照合してください。出典元は TVRCC Chimaera Pages。
 </p>
